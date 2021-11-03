@@ -8,7 +8,7 @@
     <div class="row pb-4">
         <div class="col-md-2"></div>
         <div class="col-sm-8 text-center">
-            <img src="/lib/images/hurt_locker.png" style="max-width:300px;">
+            <img src=@Model.Image style="max-width:300px;">
         </div>
         <div class="col-sm-2"></div>
     </div>
@@ -22,6 +22,9 @@
     </div>
 </div>
 <div>
-    <a asp-action="Index">Back to List</a> |
-    <a asp-action="Delete" asp-route-id="@Model.Id"> Delete from list</a>
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
 </div>
