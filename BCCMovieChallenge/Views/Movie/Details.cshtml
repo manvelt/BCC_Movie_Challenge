@@ -1,0 +1,27 @@
+@model BCCMovieChallenge.Models.Movie
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div class="container p-3">
+    <div class="row pb-4">
+        <div class="col-md-2"></div>
+        <div class="col-sm-8 text-center">
+            <img src="/lib/images/hurt_locker.png" style="max-width:300px;">
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+    <div class="row">
+        <div class = "col-md-2"></div>
+        <div class = "col-sm-8">
+            <h2>@Model.Title</h2>
+            <p>@Model.Description</p>
+        </div>
+        <div class = "col-sm-2"></div>
+    </div>
+</div>
+<div>
+    <a asp-action="Index">Back to List</a> |
+    <a asp-action="Delete" asp-route-id="@Model.Id"> Delete from list</a>
+</div>

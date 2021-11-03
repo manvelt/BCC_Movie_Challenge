@@ -1,0 +1,69 @@
+@model IEnumerable<BCCMovieChallenge.Models.Movie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="text-center">
+    <h1 >Welcome!</h1>
+    <em> Click on a movie below to view more details or create a new one to add to the list.</em>
+</div>
+
+<p class="text-right">
+    <a class="btn btn-primary" asp-action="Create">Add New</a>
+</p>
+<hr />
+<div class="container">
+    @foreach (var movie in Model)
+    {
+        <div class="row pb-2">
+            <div class="col-md-2">
+                <img class="img-thumbnail" src="/lib/images/hurt_locker.png" style="width:200px">               
+            </div>
+            <div class="col-md-6">
+                <h2>@movie.Title</h2>
+                <p style="overflow:hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical;">@movie.Description</p>
+                <a asp-action="Details" asp-route-id="@movie.Id">
+                    <p>Read More</p>
+                </a>
+            </div>
+            <div class="col-md-4"></div>
+        </div>
+        <hr />
+    }
+</div>
+@*<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Image)
+            </td>
+            <td>
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
